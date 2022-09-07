@@ -1,0 +1,121 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+
+    <link href="{% static 'image/logo.png' %}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+</head>
+<body>
+
+    <nav class="navbar-default navbar-fixed-top nav" role="navigation">
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="navbar-toggle">
+            <i class="fa fa-navicon" id="bars" width="50px"></i>
+            <i class="fa fa-remove" id="cancel" width="50px"></i>
+        </label>
+        
+        <a class="navbar-brand" href="#" ><img src="{% static 'image/logo.png' %}" alt="" style="width: 200px; margin-top: -10px;"></a>
+
+        <div class="navbar collapse navbar-collapse ">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{% url 'adminpage' %}">home</a></li>
+                <li><a href="{% url 'admintestimone' %}">testimonies</a></li>
+                <li><a href="{% url 'users' %}">users</a></li>
+                <li><a href="{% url 'index' %}">log out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row head">
+
+        </div>
+
+        <div class="row">
+            <div class="container">
+                <div class="col-md-12">
+                    <h3>walleth updating</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">address type</th>
+                                <th scope="col"> address</th>
+                                <th scope="col">copy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form method="post" name="address">
+                                {% csrf_token %}
+                                <tr>
+                                    <td>
+                                        {{address_form.address_name}}
+                                        <!-- <input class="form-control" name="address_name" type="text" placeholder="address type"> -->
+                                    </td>
+                                    <td>
+                                        {{address_form.address_link}}
+                                        <!-- <input class="form-control" type="text" name="address" placeholder="past wallet address here"> -->
+                                    </td>
+                                    <td>
+                                        <td>
+                                            <button class="btn btn-default">add address</button>
+                                        </td>
+                                    </td>
+                                </tr>
+                            </form>
+                        </tbody>
+
+                    </table>
+                </div><br>
+
+                <div class="col-md-12">
+                    <h3>posted wallets</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">address type</th>
+                                <th scope="col"> address</th>
+                                <th scope="col">copy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for address in address %}
+                            <tr>
+                                <td>{{address.address_name}}</td>
+                                <td>
+                                    <input class="form-control" type="text" value="{{address.address_link}}">
+                                </td>
+                                <td>
+                                    <a href="{% url 'wallet_delete' address.id %}" class="btn btn-default" role="button">delete address</a>
+                                </td>
+                            </tr>
+                            {% endfor%}
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="{% static 'css/js.js' %}"></script>
+
+</html>

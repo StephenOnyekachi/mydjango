@@ -1,0 +1,262 @@
+*{
+    margin:0;padding:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    text-transform: capitalize;
+    text-decoration: none;
+}
+.head{
+    margin-top: 70px;
+    background-color: rgb(253, 228, 0);
+    padding: 10px;
+}
+.testimone{
+    margin-top: 50px;
+}
+.create{
+    margin-top: 100px;
+}
+.testimonies{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    padding: 20px;
+    margin: 30px 0;
+}
+.link{
+    padding: 3px;
+    border: 1px solid rgb(131, 131, 131);
+    border-radius: 5px;
+}
+.button button{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.header{
+    margin-top: 50px;
+    background-color: rgb(5, 1, 32);
+    padding: 10px;
+    color: white;
+}
+.container-fluid, .container{
+    margin: 20px 0;
+}
+div img{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+.coin{
+    background-color: rgb(227, 254, 255);
+    margin-bottom: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    padding: 10px;
+}
+h1, h5,h2, h4{
+    text-align: center;
+    margin: 10px;
+}
+h3{
+    text-align: center;
+    margin: 5px;
+    color: black;
+    font-weight: bolder;
+    padding: 10px;
+}
+p{
+    text-align: center;
+    margin: 10px;
+}
+
+i{
+    color: rgb(253, 228, 0);
+    width: 100%;
+    margin: 10px;
+}
+.arms{
+    background-color: rgb(227, 254, 255);
+    margin: 10px 0px;
+}
+.arms i{
+    text-align: center;
+    margin: 10px 10px;
+}
+.arms img{
+    text-align: center;
+    margin: 110px 0px;
+}
+
+.bottom{
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 0px;
+    padding: 10px;
+}
+.bottom p{
+    text-align: justify;
+}
+.pay i{
+    color: rgb(39, 39, 39);
+}
+.bottom .copy{
+    text-align: center;
+    padding: 10px;
+}
+
+
+
+nav {
+    width: auto;
+}
+nav  .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+}
+nav  .navbar ul li a:hover{
+    background-color: #333;
+    color: #ffffff;
+}
+
+nav  .navbar ul li ul{
+    position: absolute;
+    color: #ffffff;
+    left: 0;
+    width: 200px;
+    background: #fff;
+    display: none;
+}
+nav  .navbar ul li ul li{
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+nav  .navbar ul li ul li ul{
+    left: 200px; 
+    top: 0;
+}
+nav  .navbar ul li:focus-within > ul,
+nav  .navbar ul li:hover > ul{
+    display: initial;
+}
+
+#menu-bar{
+    display: none;
+}
+
+nav label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+    right: 10%;
+}
+
+@media only screen and (max-width: 800px){
+    .head{
+        margin-top: 110px;
+        background-color: rgb(253, 228, 0);
+        padding: 10px;
+    }
+    .container-fluid, .container{
+        margin-top: 50px;
+    }
+    nav {
+        padding: 20px;
+    }
+
+    label{
+        display: initial;
+    }
+    nav  .navbar{
+        position: absolute;
+        top:100%; left:0; right: 0;
+        background: #ffffff;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        display: none;
+        margin-right: 0;
+
+        transition: all 0.3s;
+        overflow: scroll;
+    }
+
+    nav  .navbar ul li{
+        width: 100%;
+    }
+
+    nav  .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+
+    nav  .navbar ul li ul li{
+        background: #eee;
+    }
+
+    nav  .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+
+    #menu-bar ~ label #cancel{
+        display: none;
+    }
+    #menu-bar:checked ~ .navbar{
+        display: initial;
+        right: 0;
+    }
+    #menu-bar:checked ~ label #bars{
+        display: none;
+    }
+    #menu-bar:checked ~ label #cancel{
+        display: block;
+    }   nav {
+        padding: 20px;
+    }
+
+    nav  label{
+        display: initial;
+    }
+    nav  .navbar{
+        position: absolute;
+        top:100%; left:0; right: 0;
+        background: #ffffff;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        display: none;
+        margin-right: 0;
+
+        transition: all 0.3s;
+        overflow: scroll;
+    }
+
+    nav  .navbar ul li{
+        width: 100%;
+    }
+
+    nav  .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+
+    nav  .navbar ul li ul li{
+        background: #eee;
+    }
+
+    nav  .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+
+    #menu-bar ~ label #cancel{
+        display: none;
+    }
+    #menu-bar:checked ~ .navbar{
+        display: initial;
+        right: 0;
+    }
+    #menu-bar:checked ~ label #bars{
+        display: none;
+    }
+    #menu-bar:checked ~ label #cancel{
+        display: block;
+    }
+
+}
+
