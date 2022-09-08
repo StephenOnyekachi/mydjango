@@ -44,24 +44,37 @@
     <div class="container">
 
         <div class="row testimone">
-            <form action="">
+            <form action="{% url 'user_infor' user_info.id %}"  method="POST">
+                {% csrf_token %}
                 <div class="col-md-12 testimonies">
                     <div  class="alert alert-success col-md-12">
                         <div class="col-md-6">
-                            <label>{{user.name.label}} {{user.name}}</label><br>
-
+                            <label>{{user_info.name.username}}</label><br>
+                           
                             <label>update total money</label><br>
-                            {{user.money.label}}<br>
-                            {{user.money}}<br>
-                            {{user.bonus.label}}<br>
-                            {{user.bonus}}<br>
-                            {{user.total.label}}<br>
-                            {{user.total}}<br>
+                            <div class="form-group">
+                                <label for="">Money</label>
+                                <input type="text" class="form-control shadow-none" name="money">    
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="">Bonus</label>
+                                <input type="text" class="form-control shadow-none" name="bonus">    
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="">Total</label>
+                                <input type="text" class="form-control shadow-none" name="total">    
+                            </div>
+
+                        
 <!--                            {{user}}-->
                         </div><br>
                         <div class="caption">
                             <p>
-                                <button class="btn btn-success" role="button">save information</button>
+                                <button class="btn btn-success" type="submit" >save information</button>
                             </p>
                         </div>
                     </div>

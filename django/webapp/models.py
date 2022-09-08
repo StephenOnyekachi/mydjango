@@ -12,7 +12,7 @@ class Users(models.Model):
     money               = models.IntegerField(null=True)
 
     def __str__(self):
-        return self.name
+        return self.name.username
 
 class Testimony(models.Model):
     content             = models.TextField(max_length=1000, null=True)
