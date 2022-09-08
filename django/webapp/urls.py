@@ -16,7 +16,7 @@ urlpatterns = [
     path('users/', views.users, name='users'),
     path('alert/', views.alert, name='alert'),
 
-    path('user_infor/<int:pk>/', views.user_infor, name='user_infor'),
+    path('user_infor/<int:id>/', views.user_infor, name='user_infor'),
     path('users_delete/<int:pk>', views.users_delete, name='users_delete'),
     path('wallet_delete/<int:pk>/', views.wallet_delete, name='wallet_delete'),
     path('testimony_delete/<int:pk>/', views.testimony_delete, name='testimony_delete'),

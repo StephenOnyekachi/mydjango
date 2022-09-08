@@ -121,18 +121,21 @@ def alert(request):
 
     return render(request, 'alert.html')
 
-def user_infor(request, pk):
-    # infor = Users.objects.get(id=pk)
+def user_infor(request, id):
+    user_info = Users.objects.get(pk=id)
     if request.method == 'POST':
-        user = UsersForm(request.POST)
-        if user.is_valid():
-            user.save()
-            return redirect('users')
-    else:
-        user = UsersForm()
+        bonus=request.POST["bonus"]
+        money=request.POST["money"]
+        total=request.POST["total"]
+
+        user_info.bonus=bonus
+        user_info.money=money
+        user_info.total=total
+        user_info.save()
+        return redirect('users')
     context = {
-        'users': users,
-        'user': user,
+        'user_info': user_info,
+        
     }
     return render(request, 'user_infor.html', context)
 
@@ -157,7 +160,7 @@ def wallet_delete(request, pk):
     return render(request, 'wallet_delete.html', context)
 
 def users_delete(request, pk):
-    user = Address.objects.get(id=pk)
+    user = Users.objects.get(id=pk)
     if request.method == 'POST':
         user.delete()
         return redirect('adminpage')
@@ -167,7 +170,7 @@ def users_delete(request, pk):
     return render(request, 'users_delete.html', context)
 
 def users(request):
-    user = User.objects.all()
+    user = Users.objects.all()
     context = {
         'user': user
     }
