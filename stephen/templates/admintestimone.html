@@ -46,7 +46,7 @@
                 <div class="col-md-12">
                     <h3>add testimonies</h3>
                 </div>
-                <form method="POST" name="form">
+                <form method="POST" name="form" enctype="multipart/form-data">
                     {% csrf_token %}
                     <label>image</label><br>
                     <input type="file" class="form-control" name="image">
