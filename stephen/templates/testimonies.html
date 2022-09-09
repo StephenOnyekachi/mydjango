@@ -36,10 +36,10 @@
 
         <div class="navbar collapse navbar-collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="{% url 'home' user.id %}">home</a></li>
+                <li><a href="{% url 'home'%}">home</a></li>
                 <li class="active"><a href="{% url 'testimonies' %}">testimonies</a></li>
 				<li><a href="{% url 'investment' %}">investments</a></li>
-                <li><a href="{% url 'wallet' user.id %}">my wallet</a></li>
+                <li><a href="{% url 'wallet' %}">my wallet</a></li>
             </ul>
         </div>
         <div id="google_translate_element" style="position: absolute; top: 100px; left: 10px;"></div>

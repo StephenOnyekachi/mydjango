@@ -15,8 +15,8 @@ from .forms import UsersForm
 # Create your views here.
 
 @login_required(login_url='user_login')
-def home(request, pk):
-    user = Users.objects.get(id=pk)
+def home(request):
+    user = request.user
     if request.method == 'POST':
         bonus = int(request.POST["bonus"])
         money = int(request.POST["money"])
@@ -31,7 +31,8 @@ def home(request, pk):
         return redirect('users')
     address = Address.objects.all()
     context = {
-        'address': address
+        'address': address,
+     
     }
     return render(request, 'home.html', context)
 
@@ -44,10 +45,10 @@ def index(request):
 @login_required(login_url='user_login')
 def admintestimone(request):
     if request.method == 'POST':
-        image = request.POST.get['image']
+        image = request.POST["image"]
         content = request.POST['content']
         link = request.POST['link']
-        add_testimony = Testimony(image, content, link)
+        add_testimony = Testimony(image=image, content=content, link=link)
         add_testimony.save()
     else:
         add_testimony = Testimony()
@@ -57,6 +58,7 @@ def admintestimone(request):
         'testimony': testimony,
     }
     return render(request, 'admintestimone.html', context)
+
 
 def testimonies(request):
     testimony = Testimony.objects.all()
@@ -124,8 +126,8 @@ def signup(request):
     return render(request, 'signup.html', context)
 
 @login_required(login_url='user_login')
-def wallet(request, pk):
-    user = Users.objects.get(id=pk)
+def wallet(request):
+    user = request.user
     if request.method == 'POST':
         bonus = int(request.POST["bonus"])
         money = int(request.POST["money"])
