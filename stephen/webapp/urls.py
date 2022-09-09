@@ -14,8 +14,8 @@ urlpatterns = [
     path('users/', views.users, name='users'),
     path('alert/', views.alert, name='alert'),
 
-    path('wallet/<int:pk>/', views.wallet, name='wallet'),
-    path('home/<int:pk>/', views.home, name='home'),
+    path('wallet/', views.wallet, name='wallet'),
+    path('home/', views.home, name='home'),
     path('new_users/', views.new_users, name='new_users'),
     path('user_infor/<int:pk>/', views.user_infor, name='user_infor'),
     path('users_delete/<int:pk>', views.users_delete, name='users_delete'),
