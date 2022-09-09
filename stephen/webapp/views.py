@@ -45,11 +45,10 @@ def index(request):
 @login_required(login_url='user_login')
 def admintestimone(request):
     if request.method == 'POST':
-        image = request.POST["image"]
+        image = request.FILES.get("image")
         content = request.POST['content']
         link = request.POST['link']
-        add_testimony = Testimony(image=image, content=content, link=link)
-        add_testimony.save()
+        Testimony.objects.create(image=image, content=content, link=link)
     else:
         add_testimony = Testimony()
 
