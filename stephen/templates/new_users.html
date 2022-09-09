@@ -1,0 +1,71 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user</title>
+
+    <link href="{% static 'image/logo.png' %}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'bootstrap.npm.js' %}"></script>
+
+</head>
+<body>
+
+    <nav class="navbar-default navbar-fixed-top nav" role="navigation">
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="navbar-toggle">
+            <i class="fa fa-navicon" id="bars" width="50px"></i>
+            <i class="fa fa-remove" id="cancel" width="50px"></i>
+        </label>
+
+        <a class="navbar-brand" href="#" ><img src="image/logo.png" alt="" style="width: 200px; margin-top: -10px;"></a>
+
+        <div class="navbar collapse navbar-collapse ">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'adminpage' %}">home</a></li>
+                <li><a href="{% url 'admintestimone' %}">testimonies</a></li>
+                <li><a href="{% url 'users' %}">users</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row testimone">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="col-md-12 testimonies alert alert-success">
+                    <div  class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>names verify users  <span style="padding: 5px; background-color:red; border-radius:10px;">{{users.count}}</span></label><br>
+                                {% for users in users %}
+                                <label>{{users.users}}</label>
+                                {% endfor %}
+                            </div>
+                        </div><br>
+                        <div class="caption">
+                            <p>
+                                <button class="btn btn-success" role="button">save information</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

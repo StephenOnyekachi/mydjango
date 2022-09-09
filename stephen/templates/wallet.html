@@ -1,0 +1,191 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wallet</title>
+
+    <link href="{% static 'image/logo.png' %}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' %}">
+    </script>
+
+</head>
+<body>
+
+    <nav class="navbar-default navbar-fixed-top nav" role="navigation">
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="navbar-toggle">
+            <i class="fa fa-navicon" id="bars" width="50px"></i>
+            <i class="fa fa-remove" id="cancel" width="50px"></i>
+        </label>
+        
+        <a class="navbar-brand" href="#" ><img src="{% static 'image/logo.png' %}" alt="" style="width: 200px; margin-top: -10px;"></a>
+
+        <div class="navbar collapse navbar-collapse ">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' user.id %}">home</a></li>
+                <li><a href="{% url 'testimonies' %}">testimonies</a></li>
+                <li><a href="{% url 'investment' %}">investments</a></li>
+                <li class="active"><a href="{% url 'wallet' user.id %}">my wallet</a></li>
+            </ul>
+        </div>
+        <div id="google_translate_element" style="position: absolute; top: 100px; left: 10px;"></div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row head" style="background-color: rgb(0, 1, 15);">
+            <div class="alert alert-success col-md-12" style="margin-top: 20px;">
+                <div><b style="font-size:18px; color:green;">{{request.user}}</b></div>
+                <div>welcome to wallet
+                    <span class="fa fa-check" style="color: gold;border-radius:10px;border:1px solid gold;padding:2px;">
+                    </span>
+                </div>
+            </div>
+            <div class="alert alert-success col-md-12">
+                <div class="col-md-12">
+                    <h3>WALLET SUMMARY</h3>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">money</th>
+                            <th scope="col">bonus</th>
+                            <th scope="col">total</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>{{user.money}}</b></td>
+                            <td><b>{{user.bonus}}</b></td>
+                            <td><b>{{user.total}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert alert-success col-md-12">
+                <div class="col-md-12">
+                    <h3>withdraw your money</h3>
+                </div>
+                <table class="table">
+                    <label for="">enter your bamk account informations here</label><br>
+                    <textarea name=""  class="form-control"id="" cols="40" rows="5"></textarea>
+                    <thead>
+                        <tr>
+                            <th scope="col">your total money</th>
+                            <th scope="col">enter amount to withdraw</th>
+                            <th scope="col">withdraw</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>
+                                {{user.total}}
+                            </b></td>
+                            <td><input type="number" class="form-control" placeholder="enter amount"></td>
+                            <td>
+                                <a href="{% url 'alert' %}" class="btn btn-primary dropdown-toggle">withdraw</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert alert-success col-md-12">
+                <div class="col-md-12">
+                    <h3>make payments to the wallets below</h3>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">address type</th>
+                            <th scope="col"> address</th>
+                            <th scope="col">copy</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        {% for address in address %}
+                        <tr>
+                            <td>{{address.address_name}}</td>
+                            <td>
+                                <input class="form-control" type="text" value="{{address.address_link}}">
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-primary copy-btn" data-hex="{{pay.address}}">
+                                    click
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bottom">
+        <div class="row">  
+            <div class="col-md-4">
+                <h5><b><i>about</i></b></h5>
+                <p>
+                    The purpose of this investment is to help recover lost income, make
+                    people who are ready to get paid to earn from home,
+                    it is reliable and fast in payments.
+
+                    Investing is how you take charge of your financial security.
+                    It allows you to grow your wealth but also generate an additional
+                    income stream if needed ahead of retirement.
+                    Various investments such as stocks, ETFs, bonds, or real
+                    estate will provide either growth or income.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h5><b><i>arm</i></b></h5>
+                <p>
+                    The purpose of this investment is to help recover lost income, make
+                    people who are ready to get paid to earn from home,
+                    it is reliable and fast in payments.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h5><b><i>contact</i></b></h5>
+                <div class="col-sm-4 pay">
+                    <a href="#"><i class="fa fa-send"> telegram</i></a>
+                </div>
+                <div class="col-sm-4 pay">
+                    <a href="#"><i class="fa fa-facebook-square"> facebook</i></a>
+                </div>
+                <div class="col-sm-4 pay">
+                    <a href="#"><i class="fa fa-whatsapp"> whatsapp</i></a>
+                </div>
+
+                <h5><b><i>paymentPypes</i></b></h5>
+                <div class="col-sm-4 pay">
+                    <a href="#"><i class="fa fa-bitcoin"> bitcoin</i></a>
+                </div>
+                <div class="col-sm-4 pay">
+                    <a href="#"><i class="fa fa-usd"> usd</i></a>
+                </div>
+                <div class="col-sm-4 pay">
+                    <a href="#"><i class="fa fa-cc-mastercard"> mastercard</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 copy">site name CopyRight 2022</div>
+    </div>
+</body>
+
+<script src="{% static 'css/js.js' %}"></script>
+
+</html>

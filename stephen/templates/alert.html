@@ -1,0 +1,34 @@
+
+{% load static %}
+{% static "medians" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{% static 'image/logo.png' %}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/js/bootstrap.min.js' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <title>alert</title>
+</head>
+<body>
+    <div>
+    <div class="container">
+        <div class="alert alert-danger col-md-12">
+            <div><b style="font-size:18px; color:green;">{{request.user}}</b></div><br>
+            <div>you can withdraw now, due to you need to unlock or upgrade your wallet
+                <span class="fa fa-close" style="color: red;border-radius:10px;border:1px solid red;padding:2px;"></span>
+            </div><br>
+            <div>
+                <a href="{% url 'wallet' %}" class="btn btn-primary dropdown-toggle">cancel</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
